@@ -7,30 +7,31 @@ wrongpass = 0
 n = 2
 
 if account == "1":
-    pass1 = getpass.getpass(prompt='Enter your password: ')
-    hashed_password = hashlib.sha256(pass1.encode()).hexdigest()
-    if pass1 == 'Pass1':
-        print('You\'re in!')
-        choice = menu()
-        while choice != 'Q':
-                if choice == '1':
-                    new_pass()
-                if choice == '2':
-                    find_accounts()
-                if choice == '3':
-                    find()
-                else:
-                    print('Invalid input')
-                    choice = menu()
+    while wrongpass < 3:
+        pass1 = getpass.getpass(prompt='Enter your password: ')
+        hashed_password = hashlib.sha256(pass1.encode()).hexdigest()
+        if pass1 == 'Pass1':
+                print('You\'re in!')
+                choice = menu()
+                while choice != 'Q':
+                    if choice == '1':
+                        new_pass()
+                    if choice == '2':
+                        find_accounts()
+                    if choice == '3':
+                        find()
+                    else:
+                        print('Invalid input')
+                        choice = menu()
                 exit()
         else: 
-            if n != 0 :
-                print('Wrong Password, you\'ve got', n, 'remaining tries')
-                wrongpass = wrongpass + 1
-                n = n - 1
-            else :
-                print('You\'ve entered an incorrect password 3 times, your access is disabled')
-                exit()
+                if n != 0 :
+                    print('Wrong Password, you\'ve got', n, 'remaining tries')
+                    wrongpass = wrongpass + 1
+                    n = n - 1
+                else :
+                    print('You\'ve entered an incorrect password 3 times, your access is disabled')
+                    exit()
 
 elif account == "2":
     while wrongpass < 3:
@@ -49,7 +50,7 @@ elif account == "2":
                 else:
                     print('Invalid input')
                     choice = menu()
-                exit()
+             exit()
         else: 
             if n != 0 :
                 print('Wrong Password, you\'ve got', n, 'remaining tries')
@@ -76,7 +77,7 @@ elif account == "3":
                 else:
                     print('Invalid input')
                     choice = menu()
-                exit()
+            exit()
         else: 
             if n != 0 :
                 print('Wrong Password, you\'ve got', n, 'remaining tries')

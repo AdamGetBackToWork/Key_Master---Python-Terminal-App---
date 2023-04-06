@@ -11,7 +11,7 @@ def menu():
     print('3. Find a password for a site or app')
     print('Q. Exit')
     print('-'*36)
-    return input(': ')
+    return input(': ').upper()
 
 def new_pass():
     print('To create a new password do as follows: ')
