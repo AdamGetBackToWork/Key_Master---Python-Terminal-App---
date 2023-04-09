@@ -1,6 +1,8 @@
-from UI import menu, new_pass
+from UI import menu, new_pass, pass_gen
 import getpass
 import hashlib
+import string
+import random
 
 account = input("Hi! You're accesing your Password Manager, to proceed choose your account: \n 1 \n 2 \n 3 \n Account: ")
 wrongpass = 0
@@ -16,13 +18,24 @@ if account == "1":
                 while choice != 'Q':
                     if choice == '1':
                         new_pass()
-                    if choice == '2':
+                    elif choice == '2':
                         find_accounts()
-                    if choice == '3':
+                    elif choice == '3':
                         find()
+                    elif choice == '4':
+                        print('Here is your new, 8-letter password: \n')
+                        password = pass_gen()
+                        print(password)
+                    elif choice == "Q":
+                        exit()
                     else:
                         print('Invalid input')
                         choice = menu()
+                    further_choice = input('\n Do you want to return to the menu? Y/N: \n').upper()
+                    if further_choice == 'Y':
+                        choice = menu()
+                    else:
+                        exit()
                 exit()
         else: 
                 if n != 0 :
@@ -43,13 +56,24 @@ elif account == "2":
              while choice != 'Q':
                 if choice == '1':
                     new_pass()
-                if choice == '2':
+                elif choice == '2':
                     find_accounts()
-                if choice == '3':
+                elif choice == '3':
                     find()
+                elif choice == '4':
+                    print('Here is your new, 8-letter password: \n')
+                    password = pass_gen()
+                    print(password)
+                elif choice == "Q":
+                    exit()
                 else:
                     print('Invalid input')
                     choice = menu()
+                further_choice = input('\n Do you want to return to the menu? Y/N: \n').upper()
+                if further_choice == 'Y':
+                    choice = menu()
+                else:
+                    exit()
              exit()
         else: 
             if n != 0 :
@@ -70,14 +94,26 @@ elif account == "3":
             while choice != 'Q':
                 if choice == '1':
                     new_pass()
-                if choice == '2':
+                elif choice == '2':
                     find_accounts()
-                if choice == '3':
+                elif choice == '3':
                     find()
+                elif choice == '4':
+                    print('Here is your new, 8-letter password: \n')
+                    password = pass_gen()
+                    print(password)
+                elif choice == "Q":
+                    exit()
                 else:
                     print('Invalid input')
                     choice = menu()
+                further_choice = input('\n Do you want to return to the menu? Y/N: \n').upper()
+                if further_choice == 'Y':
+                    choice = menu()
+                else:
+                    exit()
             exit()
+
         else: 
             if n != 0 :
                 print('Wrong Password, you\'ve got', n, 'remaining tries')

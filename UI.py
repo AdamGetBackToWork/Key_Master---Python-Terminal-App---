@@ -1,16 +1,20 @@
 #from hash_maker import password
-
+import string
+import random
+#from database import store_passwords, find_users, find_password 
 
 
 def menu():
-    print('-'*36)
-    print(('-'*10) + 'Password Manager'+ ('-' *10))
+    print('-'*48)
+    print(('-'*19) + 'Key master'+ ('-' *19))
+    print('-'*48)
 #    print(('-'*10) + 'Account'+ ('-' *10))
     print('1. Create new password')
     print('2. Find all sites and apps connected to an email')
     print('3. Find a password for a site or app')
+    print('4. Generate a new safe password')
     print('Q. Exit')
-    print('-'*36)
+    print('-'*48)
     return input(': ').upper()
 
 def new_pass():
@@ -21,7 +25,25 @@ def new_pass():
 
 
 
+def pass_gen():
 
+    uppercase_letters = string.ascii_uppercase
+    lowercase_letters = string.ascii_lowercase
+    digits = string.digits
+    special_characters = string.punctuation
+
+    password = []
+
+    password.append(random.choice(uppercase_letters))
+    password.append(random.choice(digits))
+    password.append(random.choice(special_characters))
+       
+    for i in range(7):
+        password.append(random.choice(uppercase_letters + digits + special_characters + lowercase_letters))
+
+    random.shuffle(password)
+    
+    return ''.join(password)
 
 def create():
    print('Please proivide the name of the site or app you want to generate a password for')
@@ -41,3 +63,14 @@ def create():
        username = ''
    url = input('Please paste the url to the site that you are creating the password for')
    store_passwords(passw, user_email, username, url, app_name)
+
+
+# def find():
+#    print('Please proivide the name of the site or app you want to find the password to')
+#    app_name = input()
+#    find_password(app_name)
+
+# def find_accounts():
+#    print('Please proivide the email that you want to find accounts for')
+#    user_email = input() 
+#    find_users(user_email)
