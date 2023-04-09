@@ -4,6 +4,7 @@ An old project of mine, made as an off-line password manager for an unconnected 
 
 Still *under construction* so take special notice ;). Now working on SQL databases for all the data!
 
-> TO DO:
->   .csv and options to the program
->   sql
+> TO DO: 
+> - .csv "database"
+> - settings 1,2,3
+> - sql database (mysql!?)
