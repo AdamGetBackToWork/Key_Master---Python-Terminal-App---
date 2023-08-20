@@ -7,4 +7,4 @@ Still *under construction* so take special notice ;). Now working on SQL databas
 > TO DO: 
 > - .csv "database"
 > - settings 1,2,3
-> - sql database (mysql!?)
+> - sql database (mysql/plsql)
